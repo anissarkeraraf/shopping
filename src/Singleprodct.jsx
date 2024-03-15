@@ -1,16 +1,16 @@
 import React from 'react';
 
-const Singleprodct = ({product}) => {
-    console.log(product)
+const Singleprodct = ({product, handleCart}) => {
+    // console.log(handleCart)
     return (
         <div>
             <div className="card">
-                <img className='card-img' src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
-                <h1 className='text-4xl pb-3'>Teser Bag</h1>
-                <p className='pb-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, quas!</p>
+                <img className='card-img' src={product.image} alt="" />
+                <h1 className='text-4xl pb-3'>{product.title.slice(0, 10)}</h1>
+                <p className='pb-3'>{product.description.slice(0, 35)}</p>
                 <div className='card-footer pb-3'>
-                    <h1>520 $</h1>
-                    <button className='btn bg-gray-200 p-3'>Add To Cart</button>
+                    <h1>{product.price}$</h1>
+                    <button onClick={(e)=>handleCart(product)} className='btn bg-gray-200 p-3'>Add To Cart</button>
                 </div>
             </div>
         </div>

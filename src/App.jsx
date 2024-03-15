@@ -7,27 +7,41 @@ import Singleprodct from './Singleprodct';
 function App() {
 
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch('./fakeData.json')
-    .then((res) => res.json())
-    .then((data) => {
-      setProducts(data)
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data)
+      })
   }, [])
-  console.log(products)
+
+  const handleCart = (p) => {
+    const isExist = cart.find((pd) => pd.id == p.id);
+    if(!isExist){
+      setCart([...cart, p])
+    }
+    else{
+      alert('Already in cart')
+    }
+  }
+  console.log(cart)
 
   return (
     <>
       <div className="main-container">
         <div className="cards-container">
           {
-            products.map(pd=> <Singleprodct product={pd}></Singleprodct>)
+            products.map(pd => <Singleprodct product={pd} handleCart={handleCart}></Singleprodct>)
           }
- 
+
         </div>
         <div className="cart-container">
-          <h1>This is cart</h1>
+          <div className="cart-content">
+            <h>Name</h>
+            <h>Price</h>
+          </div>
         </div>
       </div>
     </>
