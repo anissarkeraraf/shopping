@@ -1,8 +1,24 @@
 .main-container{
   display: flex;
   justify-content: space-around;
+  margin-top: 15px;
 }
 .cart-container{
   box-shadow: 4px 4px 8px gray;
   width: 350px;
+}
+.card{
+  width: 350px;
+  text-align: center;
+  border: 2px solid gray;
+}
+.card-img{
+  width: 100px;
+  position: relative;
+  left: 120px;
+  padding-bottom: 10px;
+}
+.card-footer{
+  display: flex;
+  justify-content: space-around;
 }
